@@ -40,8 +40,11 @@ applicantSchema.methods.comparePassword = async function(enteredPassword){
 }
 
 //Generate jwt token
-applicantSchema.methods.getJWTtoken = function (){
+applicantSchema.methods.generateJWTtoken = function (){
     return jwt.sign({id: this._id}, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRE
     })
 }
+
+
+export const Applicant = mongoose.model('Applicant', applicantSchema);

@@ -13,7 +13,7 @@ export const errorMiddleware = (err, req, res, next)=>{
         const msg = `Resource not found. Invalid ${err.path}`;
         err = new ErrorHandler(msg, 400);
     }
-    if(err.code === 11000){
+    if(err.code === 11000){        //
         const msg = `Duplicate ${Object.keys(err.keyValue)} Entered`;
         err = new ErrorHandler(msg, 400);
     }
